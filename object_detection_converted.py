@@ -70,17 +70,17 @@ PATH_TO_LABELS = os.path.join('data', 'mscoco_label_map.pbtxt')
 NUM_CLASSES = 90
 
 
-# ## Download Model
+# ##Download Model
 
 # In[5]:
 
-# opener = urllib.request.URLopener()
-# opener.retrieve(DOWNLOAD_BASE + MODEL_FILE, MODEL_FILE)
-# tar_file = tarfile.open(MODEL_FILE)
-# for file in tar_file.getmembers():
-#   file_name = os.path.basename(file.name)
-#   if 'frozen_inference_graph.pb' in file_name:
-#     tar_file.extract(file, os.getcwd())
+opener = urllib.request.URLopener()
+opener.retrieve(DOWNLOAD_BASE + MODEL_FILE, MODEL_FILE)
+tar_file = tarfile.open(MODEL_FILE)
+for file in tar_file.getmembers():
+  file_name = os.path.basename(file.name)
+  if 'frozen_inference_graph.pb' in file_name:
+    tar_file.extract(file, os.getcwd())
 
 
 # ## Load a (frozen) Tensorflow model into memory.
